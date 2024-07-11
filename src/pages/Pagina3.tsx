@@ -1,15 +1,10 @@
 import React, { useState } from 'react'
 import Form from 'react-bootstrap/form'
 import  Button  from 'react-bootstrap/Button'
+import { Persona } from '@/interface/iPersona'
+import { registrarPersona } from '@/Firebase/Promesas'
 
-interface Persona{
-    nombre:string,
-    apellido:string,
-    rut:string,
-    edad:number,
-    fechadenacimiento:string,
-    correo:string
-}
+
 const initialState:Persona = {
     apellido:"",
     correo:"",
@@ -25,7 +20,13 @@ export const Pagina3 = () => {
     const handlePersona = (name:string,value:string)=>{
         setPersona({...persona,[name]:value})
     }
-    
+    const registrar = ()=>{
+      registrarPersona(persona).then(()=>{
+        alert("hola")
+      }).catch((e)=>{
+        console.log(e)
+      })
+    }
   return (
     <>
     <Form>
@@ -59,7 +60,7 @@ export const Pagina3 = () => {
         <Form.Control type='text' placeholder='Ingrese su RUT' name='rut' onChange={(e)=>{handlePersona(e.currentTarget.name,e.currentTarget.value)}}/>
         <Form.Text></Form.Text>
         </Form.Group> 
-        <Button type='button' variant='success'>Registrar</Button>
+        <Button type='button' variant='success' onClick={registrar}>Registrar</Button>
     </Form>
     </>
   )
