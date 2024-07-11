@@ -26,7 +26,25 @@ export const Pagina4 = () => {
                     <th>Edad</th>
                 </tr>
             </thead>
+            <tbody>
+                {
+                    personas.map((p)=>{
+                        return(
+                            <tr>
+                                <td>{p.nombre}</td>
+                                <td>{p.apellido}</td>
+                                <td>{p.rut}</td>
+                                <td>{p.correo}</td>
+                                <td>{p.fechadenacimiento}</td>
+                                <td>{p.edad}</td>
+                            </tr>
+                        )
+                    })
+                }
+
+            </tbody>
         </Table>
     </>
   )
 }
+export default Pagina4

@@ -14,7 +14,7 @@ export const obtenerPersona = async()=>{
             apellido:doc.data().apellido,
             correo:doc.data().correo,
             edad:doc.data().edad,
-            fechadenacimiento:doc.data().fechadenacimiento,
+            fechadenacimiento:doc.data().fechanacimiento,
             nombre:doc.data().nombre
         }
         personas.push(persona)
